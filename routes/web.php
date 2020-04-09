@@ -18,5 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/execute-payment","PaymentController@execute")->name("execute-payment");
+// payment create
 Route::post('create',"PaymentController@create")->name("create-payment");
+
+// payment execute
+Route::get("/execute-payment","PaymentController@execute")->name("execute-payment");
+
+//fetch sales
+Route::get("sale/{salesId}","PaymentController@getSales")->name("getSales");
+
+//fetch payment history
+Route::get("paymentList","PaymentController@getPaymentList");
+
+//fetch payment Details
+Route::get("paymentDetails/{payID}","PaymentController@getpaymentDetails");

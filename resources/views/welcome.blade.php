@@ -82,12 +82,12 @@
     // Set up a payment
     payment: function(data, actions) {
       return actions.payment.create({
-        /* redirect_urls:{
+        redirect_urls:{
           return_url:"http://localhost:8000/execute-payment"
-        }, */
+        },
         transactions: [{
           amount: {
-            total: '7',
+            total: '8',
             currency: 'USD'
           }
         }]
@@ -95,12 +95,11 @@
     },
     // Execute the payment
     onAuthorize: function(data, actions) {
-      // window.alert('Thank you for your purchase!');
-        swal("Good job!", "Thank you for your purchase!!", "success");
-        // return actions.redirect();
+      console.log(data)
+      return actions.redirect();
       /* return actions.payment.execute().then(function() {
         // Show a confirmation message to the buyer
-        window.alert('Thank you for your purchase!');
+        window.alert('Thank you for your purchasewwww!');
       }); */
     }
   }, '#paypal-button');
